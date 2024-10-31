@@ -1,0 +1,3 @@
+class InSig:
+    def __init__(self, x:int, y:int, name:str, attitude:bool): ...
+
