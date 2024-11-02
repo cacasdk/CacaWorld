@@ -5,4 +5,4 @@ class InSig:
         self.name = name
         self.attitude = attitude
     def __str__(self):
-        return f"<name: {self.name}, x: {self.x}, y: {self.y}, attitude: {self.attitude}>"
+        return f"<INSIG: name: {self.name}, x: {self.x}, y: {self.y}, attitude: {self.attitude}>"

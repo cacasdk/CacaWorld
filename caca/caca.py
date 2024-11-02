@@ -17,12 +17,13 @@ class Caca:
         :param weight: 小动物的初始体力值，表示小动物的体力状况。
         :param visible: 小动物的视力状态，表示小动物的可见范围。
         """
+        self.CACA_TYPE = "CACA" # 定义一个常量CACA_TYPE，用于标识或配置特定的类型或行为
+        self.turtle = turtle.Turtle()  # 创建turtle图形对象
         self.visible = visible  # 设置实体的视力状态
         self.x = x  # 设置实体的x坐标
         self.y = y  # 设置实体的y坐标
         self.world = _world  # 设置实体所属的世界
         self.weight = weight  # 设置实体的体力值
-        self.turtle = turtle.Turtle()  # 创建turtle图形对象
         self.turtle.speed(0)  # 设置turtle移动速度为最快
         self.turtle.penup()  # 抬起笔，避免绘制轨迹
         self.turtle.goto(x, y)  # 将turtle移动到实体的初始位置
@@ -39,3 +40,5 @@ class Caca:
         # 将对象的坐标更新为无穷远，象征其已经离开游戏区域
         self.x = math.inf
         self.y = math.inf
+    def eat(self, food):
+        self.weight += food
