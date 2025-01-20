@@ -3,7 +3,7 @@ from caca import *
 import logging
 
 
-class World(list):
+class World():
     def __init__(self, height: float, width: float):
         """
         初始化世界对象。
