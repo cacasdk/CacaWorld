@@ -25,6 +25,7 @@ file_handler.setFormatter(formatter)
 # 将文件处理器添加到 Logger 对象
 logger.addHandler(file_handler)
 
+
 class World(List[caca.Caca]):
     def __init__(self, height: float, width: float):
         """
@@ -64,3 +65,12 @@ class World(List[caca.Caca]):
         except IndexError:
             logger.error(f"Failed to remove caca object at index {index}: Index out of range")
             raise IndexError("Index out of range")
+
+    def __str__(self):
+        return f"World(height={self.height}, width={self.width}, size={len(self)}, cacas={self})"
+
+    def __repr__(self):
+        return f"World(height={self.height}, width={self.width}, cacas={self})"
+
+    def __getitem__(self, index):
+        return self[index]
