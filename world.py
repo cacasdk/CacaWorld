@@ -1,30 +1,4 @@
-import logging
-from pathlib import Path
-
-# 假设 caca 是一个已定义的模块
-import caca.caca as caca
-
-# 单例模式确保日志配置只执行一次
-def configure_logger():
-    if not hasattr(configure_logger, "configured"):
-        _logger = logging.getLogger('WorldLogger')
-        _logger.setLevel(logging.INFO)
-
-        log_dir = Path('logs')
-        log_dir.mkdir(exist_ok=True)
-        log_file = log_dir / 'world.caca.log'
-
-        file_handler = logging.FileHandler(log_file, mode='a')
-        file_handler.setLevel(logging.INFO)
-
-        formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-        file_handler.setFormatter(formatter)
-
-        _logger.addHandler(file_handler)
-        configure_logger.configured = True
-
-configure_logger()
-logger = logging.getLogger('WorldLogger')
+import cacas.caca as caca
 
 class World:
     def __init__(self, height: float, width: float):
@@ -38,7 +12,6 @@ class World:
         self.height = height
         self.width = width
         self.cacas = []
-        logger.info(f"World initialized with height={height} and width={width}")
 
     def append(self, new_caca: caca.Caca):
         """
